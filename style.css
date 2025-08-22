@@ -44,3 +44,7 @@ button:hover {
   background: #444;
   color: white;
 }
+
+#clear {
+  grid-column: 2 / 4;
+}

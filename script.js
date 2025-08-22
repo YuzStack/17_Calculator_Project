@@ -1,24 +1,34 @@
-const display = document.querySelector("#display");
-const buttons = document.querySelectorAll("button");
+'use strict';
 
-let currentInput = "";
+const display = document.querySelector('#display');
+const buttons = document.querySelectorAll('button');
 
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
+let currentInput = '';
+
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
     const value = button.textContent;
 
-    if (value === "C") {
-      currentInput = "";
-    } else if (value === "=") {
+    if (value === 'C') {
+      currentInput = '';
+    } else if (value === '=') {
       try {
         currentInput = eval(currentInput).toString();
       } catch {
-        currentInput = "Error";
+        currentInput = 'Error';
       }
     } else {
       currentInput += value;
     }
 
-    display.textContent = currentInput || "0";
+    display.textContent = currentInput || '0';
   });
 });
+
+/* // Understanding the heavy part...
+console.log(eval('1+2*3'));
+console.log(eval('1+2*3').toString());
+
+display.textContent = currentInput || '0' 
+// sets the text content to currentInput if currentInput is not empty (''), else, sets the text content to '0'
+ */
